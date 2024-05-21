@@ -179,3 +179,76 @@
     • Call instance methods on an instance
     • Check if an object is an instance of a class using the `instanceof` operator
     • Debug common issues with classes in JavaScript
+
+
+
+# Static Methods and Variables
+
+* Key Concepts:
+    • __Static Methods__: Methods called on the class itself, not on instances
+    • __Static Variables__: Variables shared across all instances, accessed via the class
+
+* Differences from Instance Counterparts:
+    • __Instance Methods__: called on individual instances
+    • __Instance Variables__: Unique to each instance
+
+* How to Declare:
+    • Static Methods: Use the `static` keyword before the method name
+    • Static Variables: Use the `static` keyword before the variable name
+
+* Static Methods
+    • Definition: Perform actions that relate to the class, not to a specific instance
+    • Usage: Utility functions, operations on groups of instances
+
+    Example:
+    ```js
+    class Book {
+        constructor(title, series, author) {
+            this.title = title;
+            this.series = series;
+            this.author = author;
+        }
+
+        // Instance method
+        getInformation() {
+            return `${this.title} by ${this.author}`;
+        }
+
+        // Static method
+        static getTitles(...books) {
+            return books.map(book => book.title);
+        }
+    }
+
+    const book1 = new Book('The Fellowship of the Ring', 'The Lord of the Rings', 'J.R.R. Tolkien');
+    const book2 = new Book('The Two Towers', 'The Lord of the Rings', 'J.R.R. Tolkien');
+    console.log(Book.getTitles(book1, book2)); // Output: The Fellowship of the Ring, The Two Towers
+    ```
+
+* Static Variables
+    • Definition: Variables not tied to any specific instance, shared across all instances
+    • Usage: Cache data, configuration settings
+
+    Example:
+    ```js
+    class Book {
+        constructor(title, series, author) {
+            this.title = title;
+            this.series = series;
+            this.author = author;
+            Book.numBooks += 1;
+        }
+
+        // Static variable
+        static numBooks = 0;
+    }
+
+    const book1 = new Book('The Fellowship of the Ring', 'The Lord of the Rings', 'J.R.R. Tolkien');
+    const book2 = new Book('The Two Towers', 'The Lord of the Rings', 'J.R.R. Tolkien');
+    console.log(Book.numBooks); // Output: 2
+    ```
+
+* Summary
+    • Static Methods: Use `static` keyword, called on the class
+    • Static Variables: Use `static` keyword, shared across instances
+    • Common Uses: Utility functions, operations on multiple instances, caching, configuration

@@ -252,3 +252,31 @@
     • Static Methods: Use `static` keyword, called on the class
     • Static Variables: Use `static` keyword, shared across instances
     • Common Uses: Utility functions, operations on multiple instances, caching, configuration
+
+
+# Inheritance
+
+* Definition: Inheritance allows a class (child) to inherit properties and methods from another class (parent), similar to biological inheritance.
+
+* Key Concepts:
+    1. Interface vs. Implementation:
+
+        • Interface: How other code interacts with the class (the "what")
+        • Implementation: How the class performs its functions (the "how")
+        • Example: An interface for 'Car' might state that Porsche "is a" car
+
+    2. Implementation Inheritance:
+
+        • Properties and methods of the parent class are available to the child class
+        • Example: A 'WritingInstrument' class can be a parent to 'Pencil' and 'Pen' classes, sharing common properties like 'material', 'bodyColor', and methods like 'write'
+
+    3. Single vs. Multiple Inheritance:
+
+        • Single Inheritance: A class inherits from one parent class
+        • Multiple Inheritance: A class inherits from multiple parent classes (not supported by JavaScript)
+        • Example: 'Pencil' can inherit from both 'WritingInstrument' and 'Eraser' classes in languages that support multiple inheritance
+
+* Summary:
+    • Inheritance: Enables classes to gain behaviour and data from parent classes
+    • Single Inheritance: JavaScript supports this, where a child class inherits from one parent
+    • Multiple Inheritance: Not supported in JavaScript but allows a class to inherit from multiple parents in some languages

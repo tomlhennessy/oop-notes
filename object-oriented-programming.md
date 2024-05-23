@@ -280,3 +280,62 @@
     • Inheritance: Enables classes to gain behaviour and data from parent classes
     • Single Inheritance: JavaScript supports this, where a child class inherits from one parent
     • Multiple Inheritance: Not supported in JavaScript but allows a class to inherit from multiple parents in some languages
+
+
+# Inheritance Class Syntax in JavaScript
+
+* Key Concepts:
+
+    1. Extending an Existing Class:
+        • Use `extends` keyword to inherit from a parent class
+        • Example:
+        ```js
+        class MyClass extends Object {}
+        class MyChildClass extends MyClass {}
+        ```
+
+    2. Inheriting Methods:
+        • Child classes inherit methods from parent classes
+        • Example:
+        ```js
+        class Animal {
+            constructor(name, sound) {
+                this.name = name;
+                this.sound = sound;
+            }
+
+            speak() {
+                console.log(this.sound);
+            }
+            static pet(animal) {
+                console.log(`You attempt to pet ${animal.name}`);
+            }
+        }
+
+        class Dog extends Animal {}
+
+        const fluffy = new Dog('Fluffy', 'woof');
+        fluffy.speak(); // woof
+        Dog.pet(fluffy); // You attempt to pet Fluffy
+        ```
+
+    3. Using __`super`__ Function:
+        • Call the parent class constructor from the child class constructor
+        • Example
+        ```js
+        class Dog extends Animal {
+            constructor(name) {
+                super(name, 'woof');
+            }
+        }
+
+        const fluffy = new Dog('Fluffy');
+        fluffy.speak(); // woof
+        Dog.pet(fluffy); // You attempt to pet Fluffy
+        ```
+        • __`super`__ ensures adherence to the DRY (Don't Repeat Yourself) principle
+
+* Summary:
+    • Extending Classes: Use `extends` to make a child class inherit from a parent class
+    • Inherited Methods: Child classes can use methods from their parent classes
+    • Super Function: use `super` in child constructors to call the parent class constructor, maintaining code simplicity and adherence to the DRY principle

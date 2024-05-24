@@ -339,3 +339,60 @@
     • Extending Classes: Use `extends` to make a child class inherit from a parent class
     • Inherited Methods: Child classes can use methods from their parent classes
     • Super Function: use `super` in child constructors to call the parent class constructor, maintaining code simplicity and adherence to the DRY principle
+
+
+# Polymorphism
+
+Definition: Polymorphism, derived from the Greek words for "many shapes",refers to the ability of different objects to be processed through a common interface. In OOP, this means that a single function or method can operate on different data types or classes.
+
+* Types of Polymorphism
+
+    1. Function Overloading
+        • Multiple functions share the same name but differ in the type or number of parameters
+
+        • Example:
+        ```py
+        def sum(number1, number2):
+            return number1 + number2
+
+        def sum(listOfNumbers):
+            total = 0
+            for num in listOfNumbers:
+                total += num
+            return total
+        ```
+        • Here, `sum` is overloaded to handle both individual numbers and lists of numbers
+
+    2. Function Overriding
+        • A child class provides its own implementation of a method inherited from a parent class
+        • Focus is typically more on overriding than overloading
+
+* Polymorphism in Practice
+
+    • Built-in Example in JavaScript
+        - All objects in JavaScript inherit from the `object` class, which has a `toString()` method
+        - Different objects can have their own `toString()` implementations:
+
+        ```js
+        console.log([1, 2, 3].toString()); // '1, 2, 3'
+        console.log("some text".toString()); // 'some text'
+        console.log(new Date().toString()); // 'current date and time'
+        console.log(new Object().toString()); // '[object Object]'
+        ```
+        • Objects use their specific `toString()` method, demonstrating polymorphism
+
+* Customising Methods
+    • If the default `toString()` method is not useful, you can override it in your own classes
+
+* Conceptual Example
+    • Consider different types of writing instruments with erasers:
+        - Eraser: A base class for erasing mistakes
+        - WritingInstrument: Inherits from Eraser
+        - Pen and Pencil: Inherit from WritingInstrument, and thus can erase
+        - CalligraphyPen: Inherits from Pen but overrides the `erase` method to use white-out
+    • This demonstrates polymorphism as different classes implement the `erase()` method in various ways to achieve the same result
+
+* Key Takeaways
+    • Polymorphism allows methods to be used interchangeably across different classes
+    • Function Overloading and Function Overriding are two primary types of polymorphism
+    • Overriding is more commonly discussed and involves changing the implementation of an inherited method

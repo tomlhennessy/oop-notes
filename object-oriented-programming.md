@@ -396,3 +396,85 @@ Definition: Polymorphism, derived from the Greek words for "many shapes",refers 
     • Polymorphism allows methods to be used interchangeably across different classes
     • Function Overloading and Function Overriding are two primary types of polymorphism
     • Overriding is more commonly discussed and involves changing the implementation of an inherited method
+
+
+# Overriding a Method in a Parent Class in JS
+
+* Concept of Method Overriding
+    • Polymorphism: A child class overrides a method of its parent class to provide a specific implementation
+    • Objective: Achieve the same result using different implementations
+
+* How to Override a Method
+    • Create a method in the child class with the same name as the parent method you want to override
+
+    Example: Overriding `speak` method
+    ```js
+    class Animal {
+        constructor(name, sound) {
+            this.name = name;
+            this.sound = sound;
+        }
+
+        speak() {
+            console.log(this.sound);
+        }
+    }
+
+    class Dog extends Animal {
+        speak() {
+            console.log('bark bark');
+        }
+    }
+
+    const fluffy = new Dog('Fluffy', 'woof');
+    fluffy.speak(); // Output: bark bark
+    ```
+
+    Implementing Polymorphism and Inheritance
+
+    ```js
+    class Charity {}
+
+    class Business {
+        toString() { return 'Give us your money.'; }
+    }
+
+    class Restaurant extends Business {
+        toString() { return 'Eat at Joe\'s!'; }
+    }
+
+    class AutoRepairShop extends Business {}
+
+    class Retail extends Business {
+        toString() { return 'Buy some stuff!'; }
+    }
+
+    class ClothingStore extends Retail {}
+
+    class PhoneStore extends Retail {
+        toString() { 'Upgrade your perfectly good phone, now!; }
+    }
+
+    console.log(new PhoneStore().toString()); // Output: Upgrade your perfectly good phonem now!
+    console.log(new ClothingStore().toString()); // Output: Buy some stuff!
+    console.log(new Restaurant().toString); // Eat at Joe's!
+    console.log(new AutoRepairShop().toString()); // Output: Give us your money.
+    console.log(new Charity().toString()); // Output: [object object]
+    ```
+
+* Key Points
+    • Polymorphism via Overriding:
+        - `PhoneStore` and `Restaurant` override the `toString()` method
+        - They provide specific messages: "Upgrade your perfectly good phone, now!" and "Eat at Joe's!" respectively
+
+    • Inheritance Chain:
+        - `AutoRepairShop` and `ClothingStore` inherit and use their parent class' `toString()` method
+        - `Charity` relies on the default `toString()` from `Object`, printing "[object Object]"
+
+* Practical Tips
+    • Typing Practice: Type code examples manually to practice syntax and reinforce learning
+    • Using `super`: To override a method and still call the parent method, use `super.methodName()` in the child class method
+
+* Summary
+    • Overriding methods in JavaScript allows child classes to provide specific implementations of methods defined in parent classes
+    • This is a core aspect of polymorphism in object-oriented programming
